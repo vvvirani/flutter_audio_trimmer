@@ -19,6 +19,12 @@ class MethodChannelAudioCutter extends AudioCutterPlatform {
     required AudioTrimTime time,
     required AudioFileType fileType,
   }) async {
+    if (Platform.isIOS && fileType == AudioFileType.mp3) {
+      throw AudioTrimException(
+        code: 'unsupported_file_type',
+        message: '.mp3 File type is not supported',
+      );
+    }
     try {
       String? resultPath = await _methodChannel.invokeMethod<String?>(
         'trim',

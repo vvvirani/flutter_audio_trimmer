@@ -57,9 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
         Directory directory = await getApplicationDocumentsDirectory();
 
         File? trimmedAudioFile = await AudioCutter.trim(
-          file: _file!,
-          outputPath:
-              '${directory.path}/${DateTime.now().millisecondsSinceEpoch}.m4a',
+          inputFile: _file!,
+          outputDirectory: directory,
+          fileName: DateTime.now().millisecondsSinceEpoch.toString(),
+          fileType: AudioFileType.m4a,
           time: AudioTrimTime(
             start: const Duration(seconds: 50),
             end: const Duration(seconds: 100),

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:audio_cutter/src/audio_file_type.dart';
 import 'package:audio_cutter/src/audio_trim_time.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
@@ -20,8 +21,10 @@ abstract class AudioCutterPlatform extends PlatformInterface {
   }
 
   Future<File?> trim({
-    required File file,
-    required String outputPath,
+    required File inputFile,
+    required Directory outputDirectory,
+    required String fileName,
+    required AudioFileType fileType,
     required AudioTrimTime time,
   });
 }

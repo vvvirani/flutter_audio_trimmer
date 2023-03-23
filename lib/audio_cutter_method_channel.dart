@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:audio_cutter/src/audio_file_type.dart';
 import 'package:audio_cutter/src/audio_trim_time.dart';
 import 'package:audio_cutter/src/audio_trim_exception.dart';
 import 'package:flutter/services.dart';
@@ -12,18 +13,21 @@ class MethodChannelAudioCutter extends AudioCutterPlatform {
 
   @override
   Future<File?> trim({
-    required File file,
-    required String outputPath,
+    required File inputFile,
+    required Directory outputDirectory,
+    required String fileName,
     required AudioTrimTime time,
+    required AudioFileType fileType,
   }) async {
     try {
       String? resultPath = await _methodChannel.invokeMethod<String?>(
         'trim',
         <String, dynamic>{
-          'file_path': file.path,
-          'output_path': outputPath,
+          'input_path': inputFile.path,
+          'output_path': '${outputDirectory.path}/$fileName.${fileType.name}',
           'start_time': time.start.inSeconds.toDouble(),
           'end_time': time.end.inSeconds.toDouble(),
+          'file_type': fileType.name,
         },
       );
       return resultPath != null ? File(resultPath) : null;

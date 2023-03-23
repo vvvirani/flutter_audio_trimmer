@@ -32,7 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _onPickAudioFile() async {
     try {
-      if (await Permission.photos.request().isGranted) {
+      Permission permission =
+          Platform.isAndroid ? Permission.storage : Permission.photos;
+      if (await permission.request().isGranted) {
         FilePickerResult? result = await FilePicker.platform.pickFiles(
           allowMultiple: false,
           type: FileType.any,

@@ -1,16 +1,12 @@
 package com.vvvirani.audio_cutter
 
-import com.googlecode.mp4parser.authoring.Movie
-import com.googlecode.mp4parser.authoring.Track
-import com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder
-import com.googlecode.mp4parser.authoring.container.mp4.MovieCreator
-import com.googlecode.mp4parser.authoring.tracks.CroppedTrack
+import android.os.Build
+import androidx.annotation.RequiresApi
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import java.io.FileOutputStream
 
 class AudioCutterPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
@@ -20,6 +16,7 @@ class AudioCutterPlugin : FlutterPlugin, MethodCallHandler {
         channel.setMethodCallHandler(this)
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onMethodCall(call: MethodCall, result: Result) {
         if (call.method == "trim") {
 
@@ -31,38 +28,10 @@ class AudioCutterPlugin : FlutterPlugin, MethodCallHandler {
             if (audioFilePath != null && outputFilePath != null && startTime != null && endTime != null) {
 
                 try {
-                    val movie = MovieCreator.build(audioFilePath)
-                    val audioTracks = mutableListOf<Track>()
-                    for (track in movie.tracks) {
-                        if (track.handler == "sound") {
-                            audioTracks.add(track)
-                        }
-                    }
-
-                    val newMovie = Movie()
-                    for (track in audioTracks) {
-                        val startTimeInTrack =
-                            track.syncSamples?.let { track.syncSamples.firstOrNull() }?.toDouble()
-                                ?: 0.0
-                        val duration = track.duration.toDouble()
-                        val endTimeInTrack = startTimeInTrack + duration
-                        if (startTimeInTrack <= endTime && endTimeInTrack >= startTime) {
-                            val newTrack = CroppedTrack(track, startTimeInTrack.toLong(),
-                                (endTimeInTrack - startTimeInTrack).toLong())
-                            newMovie.addTrack(newTrack)
-                        }
-                    }
-
-                    val output = FileOutputStream(outputFilePath)
-                    val container = DefaultMp4Builder().build(newMovie)
-                    container.writeContainer(output.channel)
-                    output.close()
-
-                    result.success(outputFilePath)
+                    result.success(audioFilePath)
 
                 } catch (e: java.lang.Exception) {
                     result.error("failed", e.message, e.localizedMessage)
-
                 }
 
             } else {

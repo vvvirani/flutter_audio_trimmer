@@ -22,8 +22,8 @@ class MethodChannelAudioCutter extends AudioCutterPlatform {
         <String, dynamic>{
           'file_path': file.path,
           'output_path': outputPath,
-          'start_time': time.start.inSeconds,
-          'end_time': time.end.inSeconds,
+          'start_time': time.start.inSeconds.toDouble(),
+          'end_time': time.end.inSeconds.toDouble(),
         },
       );
       return resultPath != null ? File(resultPath) : null;

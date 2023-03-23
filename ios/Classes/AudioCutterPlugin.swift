@@ -32,6 +32,7 @@ public class AudioCutterPlugin: NSObject, FlutterPlugin {
                     let endTime = CMTime(seconds: endTimeSeconds!!, preferredTimescale: 1)
                     
                     exportSession?.timeRange = CMTimeRange(start: startTime, end: endTime)
+                    exportSession?.outputFileType = .m4a
                     exportSession?.outputURL = URL(fileURLWithPath: trimmedAudioPath!!)
                     
                     exportSession?.exportAsynchronously(completionHandler: {

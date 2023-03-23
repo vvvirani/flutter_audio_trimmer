@@ -73,7 +73,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
 
 SPEC CHECKSUMS:
-  audio_cutter: 95f357633f777ae3350cc7e225a59358e332b26a
+  audio_cutter: fb53c8fe00bb194c6bfe3092f9706e622d4b566d
   DKImagePickerController: b512c28220a2b8ac7419f21c491fc8534b7601ac
   DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
   file_picker: ce3938a0df3cc1ef404671531facef740d03f920

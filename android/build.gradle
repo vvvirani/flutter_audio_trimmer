@@ -1,4 +1,4 @@
-group 'com.vvvirani.audio_cutter'
+group 'com.vvvirani.audio_trimmer'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }

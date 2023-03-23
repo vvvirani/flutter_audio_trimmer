@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:audio_cutter/audio_cutter.dart';
+import 'package:audio_trimmer/audio_trimmer.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (_file != null) {
         Directory directory = await getApplicationDocumentsDirectory();
 
-        File? trimmedAudioFile = await AudioCutter.trim(
+        File? trimmedAudioFile = await AudioTrimmer.trim(
           inputFile: _file!,
           outputDirectory: directory,
           fileName: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
       } else {
         _showSnackBar('Select audio file for trim');
       }
-    } on AudioTrimException catch (e) {
+    } on AudioTrimmerException catch (e) {
       _showSnackBar(e.message);
     } catch (e) {
       _showSnackBar(e.toString());

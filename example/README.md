@@ -1,6 +1,6 @@
-# audio_cutter_example
+# audio_trimmer_example
 
-Demonstrates how to use the audio_cutter plugin.
+Demonstrates how to use the audio_trimmer plugin.
 
 ## Getting Started
 

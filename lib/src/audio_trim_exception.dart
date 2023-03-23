@@ -1,12 +1,12 @@
-class AudioTrimException implements Exception {
+class AudioTrimmerException implements Exception {
   final String code;
   final String message;
   final dynamic details;
 
-  AudioTrimException({required this.code, required this.message, this.details});
+  AudioTrimmerException({required this.code, required this.message, this.details});
 
   @override
   String toString() {
-    return 'AudioTrimException($code, $message, $details)';
+    return 'AudioTrimmerException($code, $message, $details)';
   }
 }

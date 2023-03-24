@@ -3,7 +3,7 @@
 # Run `pod lib lint audio_trimmer.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'audio_trimmer'
+  s.name             = 'flutter_audio_trimmer'
   s.version          = '0.0.1'
   s.summary          = 'Trimming an audio file means cutting a portion of the audio from the beginning or end of the file or removing some part from the middle.'
   s.description      = <<-DESC

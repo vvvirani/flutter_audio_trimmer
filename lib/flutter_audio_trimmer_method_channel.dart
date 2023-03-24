@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:audio_trimmer/src/audio_file_type.dart';
-import 'package:audio_trimmer/src/audio_trim_exception.dart';
-import 'package:audio_trimmer/src/audio_trim_time.dart';
+import 'package:flutter_audio_trimmer/src/audio_file_type.dart';
+import 'package:flutter_audio_trimmer/src/audio_trim_exception.dart';
+import 'package:flutter_audio_trimmer/src/audio_trim_time.dart';
 import 'package:flutter/services.dart';
 
-import 'audio_trimmer_platform_interface.dart';
+import 'flutter_audio_trimmer_platform_interface.dart';
 
 class MethodChannelAudioTrimmer extends AudioTrimmerPlatform {
   final MethodChannel _methodChannel =

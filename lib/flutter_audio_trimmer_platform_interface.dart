@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:audio_trimmer/audio_trimmer_method_channel.dart';
-import 'package:audio_trimmer/src/audio_file_type.dart';
-import 'package:audio_trimmer/src/audio_trim_time.dart';
+import 'package:flutter_audio_trimmer/flutter_audio_trimmer_method_channel.dart';
+import 'package:flutter_audio_trimmer/src/audio_file_type.dart';
+import 'package:flutter_audio_trimmer/src/audio_trim_time.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 abstract class AudioTrimmerPlatform extends PlatformInterface {

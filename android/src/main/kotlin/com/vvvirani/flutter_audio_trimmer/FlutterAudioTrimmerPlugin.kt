@@ -1,4 +1,4 @@
-package com.vvvirani.audio_trimmer
+package com.vvvirani.flutter_audio_trimmer
 
 import android.util.Log
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg
@@ -11,17 +11,22 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-class AudioTrimmerPlugin : FlutterPlugin, MethodCallHandler {
-
+/** FlutterAudioTrimmerPlugin */
+class FlutterAudioTrimmerPlugin : FlutterPlugin, MethodCallHandler {
+    /// The MethodChannel that will the communication between Flutter and native Android
+    ///
+    /// This local reference serves to register the plugin with the Flutter Engine and unregister it
+    /// when the Flutter Engine is detached from the Activity
     private lateinit var channel: MethodChannel
+
     private lateinit var ffmpeg: FFmpeg
 
     private val tag = this::class.java.name
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "vvvirani/audio_trimmer")
+        channel =
+            MethodChannel(flutterPluginBinding.binaryMessenger, "vvvirani/flutter_audio_trimmer")
         channel.setMethodCallHandler(this)
-        ffmpeg = FFmpeg.getInstance(flutterPluginBinding.applicationContext)
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {

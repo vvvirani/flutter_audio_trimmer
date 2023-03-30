@@ -1,4 +1,4 @@
-# Audio Trimmer
+# Flutter Audio Trimmer
 
 Trimming an audio file means cutting a portion of the audio from the beginning or end of the file or removing some part from the middle.
 

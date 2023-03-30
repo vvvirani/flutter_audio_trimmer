@@ -2,11 +2,10 @@ import Flutter
 import UIKit
 import AVFoundation
 
-public class AudioTrimmerPlugin: NSObject, FlutterPlugin {
-    
+public class FlutterAudioTrimmerPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "vvvirani/audio_trimmer", binaryMessenger: registrar.messenger())
-        let instance = AudioTrimmerPlugin()
+        let channel = FlutterMethodChannel(name: "vvvirani/flutter_audio_trimmer", binaryMessenger: registrar.messenger())
+        let instance = FlutterAudioTrimmerPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     

@@ -1,4 +1,4 @@
-package com.vvvirani.audio_trimmer_example
+package com.vvvirani.flutter_audio_trimmer_example
 
 import io.flutter.embedding.android.FlutterActivity
 

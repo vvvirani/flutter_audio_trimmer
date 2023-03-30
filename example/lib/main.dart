@@ -56,11 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
       if (_file != null) {
         Directory directory = await getApplicationDocumentsDirectory();
 
-        File? trimmedAudioFile = await AudioTrimmer.trim(
+        File? trimmedAudioFile = await FlutterAudioTrimmer.trim(
           inputFile: _file!,
           outputDirectory: directory,
           fileName: DateTime.now().millisecondsSinceEpoch.toString(),
-          fileType: AudioFileType.m4a,
+          fileType: Platform.isAndroid ? AudioFileType.mp3 : AudioFileType.m4a,
           time: AudioTrimTime(
             start: const Duration(seconds: 50),
             end: const Duration(seconds: 100),

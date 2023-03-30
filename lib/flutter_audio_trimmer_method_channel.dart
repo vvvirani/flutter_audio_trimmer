@@ -1,15 +1,14 @@
 import 'dart:io';
 
-import 'package:flutter_audio_trimmer/src/audio_file_type.dart';
-import 'package:flutter_audio_trimmer/src/audio_trim_exception.dart';
-import 'package:flutter_audio_trimmer/src/audio_trim_time.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_audio_trimmer/flutter_audio_trimmer.dart';
 
 import 'flutter_audio_trimmer_platform_interface.dart';
 
-class MethodChannelAudioTrimmer extends AudioTrimmerPlatform {
+/// An implementation of [FlutterAudioTrimmerPlatform] that uses method channels.
+class MethodChannelFlutterAudioTrimmer extends FlutterAudioTrimmerPlatform {
   final MethodChannel _methodChannel =
-      const MethodChannel('vvvirani/audio_trimmer');
+      const MethodChannel('vvvirani/flutter_audio_trimmer');
 
   @override
   Future<File?> trim({

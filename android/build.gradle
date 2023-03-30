@@ -1,4 +1,4 @@
-group 'com.vvvirani.audio_trimmer'
+group 'com.vvvirani.flutter_audio_trimmer'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -48,3 +48,4 @@ android {
 dependencies {
     implementation "com.writingminds:FFmpegAndroid:0.3.2"
 }
+

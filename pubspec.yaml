@@ -1,7 +1,7 @@
 name: flutter_audio_trimmer
 description: Trimming an audio file means cutting a portion of the audio from the beginning or end of the file or removing some part from the middle.
-version: 0.0.1
-homepage: https://github.com/vvvirani/audio_trimmer
+version: 0.0.3
+homepage: https://github.com/vvvirani/flutter_audio_trimmer
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
@@ -35,10 +35,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.vvvirani.audio_trimmer
-        pluginClass: AudioTrimmerPlugin
+        package: com.vvvirani.flutter_audio_trimmer
+        pluginClass: FlutterAudioTrimmerPlugin
       ios:
-        pluginClass: AudioTrimmerPlugin
+        pluginClass: FlutterAudioTrimmerPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

@@ -1,27 +1,28 @@
 import 'dart:io';
 
-import 'package:flutter_audio_trimmer/flutter_audio_trimmer_method_channel.dart';
-import 'package:flutter_audio_trimmer/src/audio_file_type.dart';
-import 'package:flutter_audio_trimmer/src/audio_trim_time.dart';
+import 'package:flutter_audio_trimmer/flutter_audio_trimmer.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-abstract class AudioTrimmerPlatform extends PlatformInterface {
-  /// Constructs a AudioTrimmerPlatform.
-  AudioTrimmerPlatform() : super(token: _token);
+import 'flutter_audio_trimmer_method_channel.dart';
+
+abstract class FlutterAudioTrimmerPlatform extends PlatformInterface {
+  /// Constructs a FlutterAudioTrimmerPlatform.
+  FlutterAudioTrimmerPlatform() : super(token: _token);
 
   static final Object _token = Object();
 
-  static AudioTrimmerPlatform _instance = MethodChannelAudioTrimmer();
+  static FlutterAudioTrimmerPlatform _instance =
+      MethodChannelFlutterAudioTrimmer();
 
-  /// The default instance of [AudioTrimmerPlatform] to use.
+  /// The default instance of [FlutterAudioTrimmerPlatform] to use.
   ///
-  /// Defaults to [MethodChannelAudioTrimmer].
-  static AudioTrimmerPlatform get instance => _instance;
+  /// Defaults to [MethodChannelFlutterAudioTrimmer].
+  static FlutterAudioTrimmerPlatform get instance => _instance;
 
   /// Platform-specific implementations should set this with their own
-  /// platform-specific class that extends [AudioTrimmerPlatform] when
+  /// platform-specific class that extends [FlutterAudioTrimmerPlatform] when
   /// they register themselves.
-  static set instance(AudioTrimmerPlatform instance) {
+  static set instance(FlutterAudioTrimmerPlatform instance) {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }

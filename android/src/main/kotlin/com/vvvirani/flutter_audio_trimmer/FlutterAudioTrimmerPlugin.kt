@@ -27,6 +27,7 @@ class FlutterAudioTrimmerPlugin : FlutterPlugin, MethodCallHandler {
         channel =
             MethodChannel(flutterPluginBinding.binaryMessenger, "vvvirani/flutter_audio_trimmer")
         channel.setMethodCallHandler(this)
+        ffmpeg = FFmpeg.getInstance(flutterPluginBinding.applicationContext)
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {

@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _onTrimAudioFile() async {
     try {
       if (_file != null) {
-        Directory directory = await getApplicationDocumentsDirectory();
+        Directory directory = await getApplicationSupportDirectory();
 
         File? trimmedAudioFile = await FlutterAudioTrimmer.trim(
           inputFile: _file!,

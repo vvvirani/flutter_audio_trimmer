@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_audio_trimmer'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'Trimming an audio file means cutting a portion of the audio from the beginning or end of the file or removing some part from the middle.'
   s.description      = <<-DESC
 Trimming an audio file means cutting a portion of the audio from the beginning or end of the file or removing some part from the middle.

@@ -27,7 +27,7 @@ abstract class FlutterAudioTrimmerPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<File?> trim({
+  Future<File> trim({
     required File inputFile,
     required Directory outputDirectory,
     required String fileName,
